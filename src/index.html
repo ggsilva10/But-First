@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>But First - Seu Gestor de Tarefas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+                <div>
+                    <div class="muted" style="font-size:12px">Boa noite 🌙</div>
+                    <div class="header__title">Meu Caderno</div>
+                    <div class="muted" style="font-size:12px">Sex, 29 de Maio</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+                    <div class="badge-week">S22<br><small style="font-size:10px;opacity:0.9">Semana</small></div>
+                    <button class="pill templates-btn">Templates</button>
+                </div>
+            </div>
+
+            <!-- school filters -->
+            <div style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <button class="pill pill--active">Todas</button>
+                <button class="pill">EMEF São Paulo</button>
+                <button class="pill">Colégio Bom Pastor</button>
+                <button class="pill">+</button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs" aria-label="Navegação principal">
+            <button class="nav-tab nav-tab--hoje nav-tab--active" data-tab="dashboard">
+                <div>🏠</div>
+                <div style="font-size:11px">Hoje</div>
+            </button>
+            <button class="nav-tab nav-tab--agenda" data-tab="agenda">
+                <div>📅</div>
+                <div style="font-size:11px">Agenda</div>
+            </button>
+            <button class="nav-tab nav-tab--turmas" data-tab="classes">
+                <div>👥</div>
+                <div style="font-size:11px">Turmas</div>
+            </button>
+            <button class="nav-tab nav-tab--planos" data-tab="plans">
+                <div>📋</div>
+                <div style="font-size:11px">Planos</div>
+            </button>
+            <button class="nav-tab nav-tab--habitos" data-tab="habits">
+                <div>🔥</div>
+                <div style="font-size:11px">Hábitos</div>
+            </button>
+            <button class="nav-tab nav-tab--metas" data-tab="metas">
+                <div>🎯</div>
+                <div style="font-size:11px">Metas</div>
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Dashboard Section (Hoje) -->
+            <section class="sec sec--active" data-section="dashboard">
+                <div class="section__header">
+                    <h2>Resumo</h2>
+                    <div class="row">
+                        <div class="pill pill--hoje pill--active">Hoje</div>
+                        <div class="pill">Semana</div>
+                    </div>
+                </div>
+
+                <!-- Top stats (Aulas / Tarefas / Hábitos / Metas) -->
+                <div class="stats-grid">
+                    <div class="stat card" style="border-left:4px solid var(--cat-turmas)">
+                        <div class="value">3</div>
+                        <div class="label">Aulas</div>
+                    </div>
+                    <div class="stat card" style="border-left:4px solid var(--cat-hoje)">
+                        <div class="value">3</div>
+                        <div class="label">Tarefas</div>
+                    </div>
+                    <div class="stat card" style="border-left:4px solid var(--cat-habitos)">
+                        <div class="value">1/4</div>
+                        <div class="label">Hábitos</div>
+                    </div>
+                    <div class="stat card" style="border-left:4px solid var(--cat-metas)">
+                        <div class="value">70%</div>
+                        <div class="label">Metas</div>
+                    </div>
+                </div>
+
+                <!-- Agenda de Hoje preview -->
+                <div style="margin-top:12px;margin-bottom:8px;display:flex;align-items:center;gap:12px">
+                    <h3 style="margin:0">Agenda de Hoje</h3>
+                </div>
+
+                <div class="card">
+                    <div class="appointment appointment--agenda">
+                        <div class="left">
+                            <div>
+                                <div class="title">7A — Matemática</div>
+                                <div class="meta">Equações • EMEF São Paulo</div>
+                            </div>
+                        </div>
+                        <div style="text-align:right">
+                            <div style="color:var(--cat-agenda);font-weight:800">07:30</div>
+                            <button class="pill" data-copy style="margin-top:8px">Copiar</button>
+                        </div>
+                    </div>
+
+                    <div class="appointment appointment--turmas" style="margin-top:12px">
+                        <div class="left">
+                            <div>
+                                <div class="title">8B — Português</div>
+                                <div class="meta">Interpretação • Colégio Bom Pastor</div>
+                            </div>
+                        </div>
+                        <div style="text-align:right">
+                            <div style="color:var(--cat-turmas);font-weight:800">09:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarefas -->
+                <div style="margin-top:18px;display:flex;align-items:center;justify-content:space-between">
+                    <h3 style="margin:0">Tarefas</h3>
+                    <div style="display:flex;gap:8px;align-items:center">
+                        <div class="pill">Todas</div>
+                        <button class="pill">Templates</button>
+                    </div>
+                </div>
+
+                <div class="tasks-list" style="margin-top:12px">
+                    <div class="task card">
+                        <div class="content">
+                            <div class="title">Corrigir provas — 7A</div>
+                            <div class="tags"><span class="tag tag--warning">Semanal</span><span class="tag tag--success">admin</span></div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+                            <button class="pill">colar</button>
+                            <div class="muted">Hoje</div>
+                        </div>
+                    </div>
+
+                    <div class="task card">
+                        <div class="content">
+                            <div class="title">Enviar questões à secretaria</div>
+                            <div class="tags"><span class="tag">Semanal</span></div>
+                        </div>
+                        <div class="muted">17h</div>
+                    </div>
+
+                    <div style="display:flex;gap:12px;margin-top:10px;align-items:center">
+                        <input id="quickTaskInput" class="pill" placeholder="Nova tarefa rápida..." style="flex:1;border-radius:12px;padding:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--text)" />
+                        <button id="quickTaskAdd" class="btn-add">+</button>
+                    </div>
+                </div>
+
+                <!-- Hábitos de Hoje -->
+                <div style="margin-top:18px">
+                    <h3>Hábitos de Hoje</h3>
+                    <div style="margin-top:12px;display:flex;flex-direction:column;gap:12px">
+                        <div class="card">
+                            <div style="display:flex;justify-content:space-between;align-items:center">
+                                <div>
+                                    <div class="card__title">Tomar água</div>
+                                    <div class="muted">Meta: 8 copos</div>
+                                </div>
+                                <div style="display:flex;gap:8px;align-items:center">
+                                    <button class="btn-round">-</button>
+                                    <div class="pill">8</div>
+                                    <button class="btn-round">+</button>
+                                </div>
+                            </div>
+                            <div style="margin-top:12px" class="progress"><div class="progress__fill" style="width:60%;background:var(--cat-hoje)"></div></div>
+                            <div class="days-row" style="margin-top:10px">
+                                <div class="day">S</div>
+                                <div class="day">T</div>
+                                <div class="day active">Q</div>
+                                <div class="day">Q</div>
+                                <div class="day">S</div>
+                                <div class="day">S</div>
+                                <div class="day">D</div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__title">Caminhar 30 min</div>
+                            <div class="muted" style="margin-top:6px">Consistência: Últimos 7 dias</div>
+                            <div style="margin-top:10px" class="progress"><div class="progress__fill" style="width:30%;background:var(--cat-turmas)"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Agenda Section -->
+            <section class="sec" data-section="agenda">
+                <div class="section__header">
+                    <h2>Agenda</h2>
+                    <div class="row">
+                        <div class="pill pill--agenda">Hoje</div>
+                        <div class="pill">Mês</div>
+                    </div>
+                </div>
+
+                <div class="row" style="gap:14px;align-items:flex-start">
+                    <div class="days-vertical">
+                        <div class="day-vert selected"><div class="num">30</div><div class="muted">Mai</div></div>
+                        <div class="day-vert"><div class="num">31</div><div class="muted">Mai</div></div>
+                        <div class="day-vert"><div class="num">1</div><div class="muted">Jun</div></div>
+                    </div>
+
+                    <div style="flex:1;display:flex;flex-direction:column;gap:10px">
+                        <div class="appointment card">
+                            <div style="flex:1">
+                                <div class="card__title">Aula de Matemática</div>
+                                <div class="card__meta">10:00 — Professor Silva</div>
+                            </div>
+                            <div class="muted">Sala 204</div>
+                        </div>
+                        <div class="appointment card">
+                            <div style="flex:1">
+                                <div class="card__title">Reunião com equipe</div>
+                                <div class="card__meta">14:30 — Projeto X</div>
+                            </div>
+                            <div class="muted">Online</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Classes Section (Turmas) -->
+            <section class="sec" data-section="classes">
+                <div class="section__header">
+                    <h2>Turmas</h2>
+                </div>
+                <div class="classes-grid">
+                    <div class="card">
+                        <div class="card__title">Turma A</div>
+                        <div class="card__meta">Matemática • 2h</div>
+                    </div>
+                    <div class="card">
+                        <div class="card__title">Turma B</div>
+                        <div class="card__meta">Física • 1h</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Plans Section -->
+            <section class="sec" data-section="plans">
+                <div class="section__header">
+                    <h2>Planos</h2>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <div><div class="card__title">Plano Mensal</div><div class="card__meta">Progresso</div></div>
+                        <div class="badge badge--planos">Planos</div>
+                    </div>
+                    <div class="progress" style="margin-top:8px"><div class="progress__fill" style="width:48%;background:var(--cat-planos)"></div></div>
+                </div>
+            </section>
+
+            <!-- Habits Section -->
+            <section class="sec" data-section="habits">
+                <div class="section__header"><h2>Hábitos</h2></div>
+                <div class="card">
+                    <div class="card__title">Meditação</div>
+                    <div class="card__meta">10 min por dia</div>
+                    <div style="margin-top:10px" class="days-row">
+                        <div class="day">D</div>
+                        <div class="day active">S</div>
+                        <div class="day">T</div>
+                        <div class="day">Q</div>
+                        <div class="day">Q</div>
+                        <div class="day">S</div>
+                        <div class="day">S</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Metas Section -->
+            <section class="sec" data-section="metas">
+                <div class="section__header"><h2>Metas</h2></div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                    <div class="card">
+                        <div style="display:flex;justify-content:space-between;align-items:center">
+                            <div>
+                                <div class="card__title">Planos de aula em dia</div>
+                                <div class="card__meta">7 de 10</div>
+                            </div>
+                            <div class="muted">70%</div>
+                        </div>
+                        <div style="margin-top:10px" class="progress"><div class="progress__fill" style="width:70%;background:var(--cat-metas)"></div></div>
+                    </div>
+
+                    <div class="card">
+                        <div style="display:flex;justify-content:space-between;align-items:center">
+                            <div>
+                                <div class="card__title">Diários preenchidos</div>
+                                <div class="card__meta">3 de 5</div>
+                            </div>
+                            <div class="muted">60%</div>
+                        </div>
+                        <div style="margin-top:10px" class="progress"><div class="progress__fill" style="width:60%;background:var(--cat-planos)"></div></div>
+                    </div>
+
+                    <div class="card">
+                        <div style="display:flex;justify-content:space-between;align-items:center">
+                            <div>
+                                <div class="card__title">Livros lidos no mês</div>
+                                <div class="card__meta">1 de 2</div>
+                            </div>
+                            <div class="muted">50%</div>
+                        </div>
+                        <div style="margin-top:10px" class="progress"><div class="progress__fill" style="width:50%;background:var(--cat-habitos)"></div></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/app.js"></script>
+</html>
